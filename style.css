@@ -1,0 +1,172 @@
+body {
+  font-family: sans-serif;
+  padding: 1em;
+  background-color: #f9f9f9;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0.7em;
+  font-size: 1.5rem;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-bottom: 1em;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-buttons button {
+  margin: 0;
+  padding: 0.5em 1em;
+  font-size: 1.1rem;
+  border: none;
+  background-color: #0078d4;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.nav-buttons button:hover {
+  background-color: #005fa3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+  font-size: 1rem;
+}
+
+table th {
+  text-align: center;
+  white-space: nowrap;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.available {
+  background-color: #e0f7fa;
+  cursor: pointer;
+}
+
+.available:hover {
+  background-color: #80deea;
+  font-weight: bold;
+  border: 2px solid #0078d4;
+}
+
+.hidden {
+  display: none;
+}
+
+#form {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 1em;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+}
+
+/* �����̃X�^�C���������܂ł���Ƃ�����c */
+
+/* ?? ���̉��ɒǉ�����OK�I */
+/* ���X�N���[���������郉�b�p�[ */
+/* ���X�N���[���������郉�b�p�[ */
+#calendar {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* �e�[�u���S�̂̃X�^�C�� */
+#calendar table {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 700px;
+}
+
+/* �Z���̊�{�X�^�C�� */
+#calendar th, #calendar td {
+  border: 1px solid #ccc;
+  padding: 0.5em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ���ԗ�i���[�j���Œ� */
+#calendar th:first-child,
+#calendar td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.unavailable {
+  background-color: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
+
+th.sunday,
+th.holiday {
+  color: red;
+}
+
+th.saturday {
+  color: blue;
+}
+
+/* �ǂݍ��ݒ��̕\���X�^�C�� */
+#calendar.loading::before {
+  content: "�ǂݍ��ݒ�...";
+  display: block;
+  text-align: center;
+  padding: 1em;
+  font-weight: bold;
+  color: #666;
+  background-color: #fff;
+  border: 1px dashed #ccc;
+  margin-bottom: 1em;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #0078d4;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 1em auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#calendar:not(.loading) .spinner {
+  display: none;
+}
+
+#calendarComment {
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #f0f8ff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #333;
+}
