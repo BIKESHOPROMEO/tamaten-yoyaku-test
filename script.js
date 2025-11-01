@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (date === todayStr) {
     alert("【本日の予約は直接店舗へお電話にてお問い合わせ下さい】");
   } else {
-    const url = new URL("https://yoyaku-form.vercel.app/");
+    const url = new URL("https://yoyaku-form-test.vercel.app/");
     url.searchParams.set("date", date);
     url.searchParams.set("time", time);
     window.location.href = url.toString();
