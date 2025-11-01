@@ -1,12 +1,12 @@
 export default async function handler(req, res) {
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbw0xAlekbbME08YaiMQMMB5ngfCDaMEWXicbyU1VlFl8quo1srYmibMD6BPWjdzj_Tb7g/exec";
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbzQOQb_ZRe9WzjRELQS6SDb7sRHP6h92tEcirk90mQGMsNi41YsrjsmylRmKlx95r8X/exec";
 
   if (req.method !== "GET") {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
   try {
-    const response = await fetch(`${GAS_URL}?action=holidays`);
+    const response = await fetch(`${GAS_URL}?action=holidaystest`);
     const text = await response.text();
 
     try {
