@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       loadingOverlay.style.display = "none";
     }
 
+      function toLocaleDateString(date) {
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, '0');
+        const d = String(date.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+    }
+
     async function fetchHolidayDates() {
   try {
     const res = await fetch("/api/holiday");
@@ -40,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   return [...Array(7)].map((_, i) => {
     const d = new Date(sunday);
     d.setDate(sunday.getDate() + i);
-    const dateStr = d.toISOString().split("T")[0];
+    const dateStr = toLocaleDateString(d);
     const day = d.getDay();
 
     const dayClass = holidayDates.includes(dateStr)
@@ -70,10 +77,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   await new Promise(requestAnimationFrame);
 
     calendarEl.innerHTML = "";
-    const todayStr = new Date().toISOString().split("T")[0]; // ← renderCalendarの最初に1回だけ
+    const todayStr = toLocaleDateString(new Date());
     const maxDate = new Date();
     maxDate.setDate(new Date().getDate()+40);
-    const maxDateStr = maxDate.toISOString().split("T")[0];
+    const maxDateStr = toLocaleDateString(maxDate);
     const dates = generateDates(weekOffset);
     const hours = generateHours();
     const dateSet = new Set(dates.map(d => d.date));
@@ -169,7 +176,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const date = cell.dataset.date;
   const time = cell.dataset.time;
-  const todayStr = new Date().toISOString().split("T")[0];
+  const todayStr = toLocaleDateString(new Date());
 
   if (date === todayStr) {
     alert("【本日の予約は直接店舗へお電話にてお問い合わせ下さい】");
